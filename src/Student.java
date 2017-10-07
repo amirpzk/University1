@@ -1,12 +1,10 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
  * Created by amirpez on 10/7/17.
  */
-public class Student {
+public class Student implements Serializable {
 
     private String name;
     private String password;
@@ -51,5 +49,7 @@ public class Student {
             System.out.println("CHanchiCHanchi");
         }
     }
+
+    public ObjectOutputStream objectOutputStream ;
 
 }

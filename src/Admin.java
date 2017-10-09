@@ -19,8 +19,8 @@ public class Admin {
     public void deleteCourse(String name){
         System.out.println("DeleteCourse");
         counter--;
-        d1.MakeCourseList();
-        d1.courses.set(d1.searchNameHolder(name),null);
+        d1.makeCourseList();
+        d1.courses.set(d1.searchCourseNameHolder(name),null);
     }
 
 }

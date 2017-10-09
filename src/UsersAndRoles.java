@@ -6,10 +6,11 @@ import java.util.ArrayList;
  */
 public class UsersAndRoles implements Serializable {
 
+
     private String name;
     private String password;
     private String idNumber;
-    private ArrayList<Course> courses;
+//    private ArrayList<Course> courses;
     private boolean isAdmin;
     static int counter = 0;
 
@@ -18,7 +19,7 @@ public class UsersAndRoles implements Serializable {
     public UsersAndRoles(String name , String password , boolean isAdmin) {
         this.name = name;
         this.password = password;
-        this.courses = new ArrayList<Course>();
+//        this.courses = new ArrayList<Course>();
         this.isAdmin = isAdmin;
 
     }
@@ -48,8 +49,8 @@ public class UsersAndRoles implements Serializable {
         if (isAdmin=true){
             System.out.println("DeleteCourse");
             counter--;
-            d1.MakeCourseList();
-            d1.courses.set(d1.searchNameHolder(name),null);
+            d1.makeCourseList();
+            d1.courses.set(d1.searchCourseNameHolder(name),null);
         } else {
             System.out.println("this role is planed to admin");
         }

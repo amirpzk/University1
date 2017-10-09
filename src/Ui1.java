@@ -49,63 +49,60 @@ public class Ui1 extends JFrame implements Serializable {
 
                 UsersAndRoles u1 = d1.usersAndRoles.get(d1.usersAndRoles.size()-1);
 
+                d1.makeLists();
+
+                System.out.println(u1.getName()+u1.getPassword());
+
                 // store object in file
                 try {
-                    FileOutputStream fileOutputStream = new FileOutputStream("t.ser");
+                    FileOutputStream fileOutputStream = new FileOutputStream("Users1.txt");
+//                    System.out.println("PASS AND USER IS SAVED INTO TEXTFILE 9");
                     ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+//                    System.out.println("PASS AND USER IS SAVED INTO TEXTFILE8");
 //                    s.objectOutputStream = objectOutputStream;
-                    objectOutputStream.writeObject(u1);
+                    objectOutputStream.writeObject(d1.usernameHolder);
+//                    System.out.println("PASS AND USER IS SAVED INTO TEXTFILE7");
                     objectOutputStream.flush();
-//                    objectOutputStream.close();
-
-                    System.out.println("PASS AND USER IS SAVED INTO TEXTFILE");
+//                    System.out.println("PASS AND USER IS SAVED INTO TEXTFILE6");
+                    objectOutputStream.close();
+//                    System.out.println("PASS AND USER IS SAVED INTO TEXTFILE5");
                 } catch (Exception e1){
                     System.out.println("We Have Some Problem in TRY AND CATCH");
                 }
 
                 // CheckBox //
-                checkBox.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        if(checkBox.isSelected()){
-                            System.out.println("CHECKBOX is SELECTED");
-                            // set Admin permission
-
-
-                        }
-                    }
-                });
+//                checkBox.addActionListener(new ActionListener() {
+//                    @Override
+//                    public void actionPerformed(ActionEvent e) {
+//                        if(checkBox.isSelected()){
+//                            System.out.println("CHECKBOX is SELECTED");
+//                            // set Admin permission
+//
+//
+//                        }
+//                    }
+//                });
 
             }
         });
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                d1.makeLists();
 
                 // Read Object from file
                 try{
                    ObjectInputStream objectOutputStream = new ObjectInputStream(
-                           new FileInputStream("t.ser")
+                           new FileInputStream("Users1.txt")
                    );
-
-                    Student s1 = (Student) objectOutputStream.readObject();
-                    System.out.println("Read name =" + s1.getName() + "password" + s1.getPassword());
-                    if (s1.getName().equalsIgnoreCase(username.getText())&&s1.getPassword().equalsIgnoreCase(password
-                    .getText())){
+                    d1.usernameHolder = (String[]) objectOutputStream.readObject();
+                    System.out.println("1");
+                    System.out.println("Read name =" + d1.usernameHolder[0] + "password" + d1.passwordHolder[0]);
+                    System.out.println("2");
+                    if (d1.searchUserames(username.getText())!=(-1)&&d1.searchPasswordHolder(password.getText())!=(-1)){
                         System.out.println("SIGNIN SUCCSES");
                     } else {
                         System.out.println("Invalid Username or Password");
-                    }
-
-                    /**
-                     * Admin signIn
-                     */
-
-                    if (s1.getName().equalsIgnoreCase("admin")&&
-                            s1.getPassword().equalsIgnoreCase(password.getText())){
-
-                    }else {
-
                     }
                 }catch (Exception e1){
                     System.out.println("Problem in readObject ..");

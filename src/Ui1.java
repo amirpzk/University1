@@ -46,9 +46,6 @@ public class Ui1 extends JFrame implements Serializable {
                 } catch (Exception e1){
                     System.out.println("We Have Some Problem in TRY AND CATCH");
                 }
-
-                System.out.println(d1.students.get(0).getName());
-
             }
         });
         b2.addActionListener(new ActionListener() {
@@ -69,10 +66,15 @@ public class Ui1 extends JFrame implements Serializable {
 
                     }
 
-                    if (s1.getName().equalsIgnoreCase("admin")&&s1.getPassword().equalsIgnoreCase(password.getText())){
+                    /**
+                     * Admin signIn
+                     */
+
+                    if (s1.getName().equalsIgnoreCase("admin")&&
+                            s1.getPassword().equalsIgnoreCase(password.getText())){
 
                     }else {
-                        
+
                     }
                 }catch (Exception e1){
                     System.out.println("Problem in readObject ..");

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Data {
     public static ArrayList<Course> courses = new ArrayList<>();
     public static String[] nameHolder = new String[100];
-    public static ArrayList<Student> students = new ArrayList<>();
+    public static ArrayList<UsersAndRoles> usersAndRoles = new ArrayList<>();
     public static String[] studentNameHolder = new String[100];
 
     public void MakeCourseList(){
@@ -28,8 +28,8 @@ public class Data {
 
     public void makeStudentNameList (){
         System.out.println("make student list");
-        for (int i=0;i<=students.size()-1;i++){
-            studentNameHolder[i]=students.get(i).getName();
+        for (int i=0;i<=usersAndRoles.size()-1;i++){
+            studentNameHolder[i]=usersAndRoles.get(i).getName();
         }
     }
 

@@ -6,6 +6,7 @@ import java.util.ArrayList;
  */
 public class UsersAndRoles implements Serializable {
 
+    private static final long serialVersionUID = 1l;
 
     private String name;
     private String password;

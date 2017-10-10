@@ -32,6 +32,12 @@ public class UsersAndRoles implements Serializable {
         return name;
     }
 
+    public boolean isAdmin(){
+        if (isAdmin==true){
+            return true;
+        }
+        return false;
+    }
 
     public void setCourse(String courseName){
         if (isAdmin=true){

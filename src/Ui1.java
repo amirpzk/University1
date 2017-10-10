@@ -14,6 +14,7 @@ public class Ui1 extends JFrame implements Serializable {
 
     public Ui1(){
         frame.setVisible(true);
+        frame.setTitle("University System");
         frame.setSize(600,600);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         GridLayout gridLayout = new GridLayout(5,2);
@@ -85,6 +86,7 @@ public class Ui1 extends JFrame implements Serializable {
 
             }
         });
+
         b2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -97,12 +99,28 @@ public class Ui1 extends JFrame implements Serializable {
                    );
                     d1.usernameHolder = (String[]) objectOutputStream.readObject();
                     System.out.println("1");
-                    System.out.println("Read name =" + d1.usernameHolder[0] + "password" + d1.passwordHolder[0]);
+                    System.out.println("Read name => " + d1.usernameHolder[d1.usernameHolder.length-1] + " password => " +
+                           d1.passwordHolder[d1.passwordHolder.length-1] );
                     System.out.println("2");
-                    if (d1.searchUserames(username.getText())!=(-1)&&d1.searchPasswordHolder(password.getText())!=(-1)){
-                        System.out.println("SIGNIN SUCCSES");
+                    if (d1.searchUserames(username.getText())!=(-1)&&d1.passwordHolder[
+                            d1.searchUserames(username.getText())].equals(password.getText())){
+
+                        System.out.println("SIGNIN SUCCSES" + " UserAndPass >> "
+                        + d1.passwordHolder[
+                                d1.searchUserames(username.getText())] );
+
+
+                        UsersAndRoles userInSystem = d1.usersAndRoles.get
+                                (d1.searchUsernameArrayList(username.getText()));
+                        if(userInSystem.isAdmin()==true){
+                            Ui2 ui2 = new Ui2();
+                            frame.dispose();
+                        }
+
+                        objectOutputStream.close();
                     } else {
                         System.out.println("Invalid Username or Password");
+                        objectOutputStream.close();
                     }
                 }catch (Exception e1){
                     System.out.println("Problem in readObject ..");

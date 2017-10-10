@@ -3,9 +3,6 @@
  */
 public class Main {
  public static void main(String arg[]){
-     Student s1= new Student("Maziar","Ghaziar");
-     Student s2= new Student("Behroz","ghaziaragain");
-
      Ui1 ui1 = new Ui1();
 
  }

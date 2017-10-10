@@ -8,27 +8,29 @@ import java.io.*;
  * Created by amirpez on 10/7/17.
  */
 public class Ui1 extends JFrame implements Serializable {
-    JFrame frame = new JFrame();
-    Data d1 = new Data();
+    JFrame frame;
+    Data d1 ;
 
 
     public Ui1(){
-        frame.setVisible(true);
-        frame.setTitle("University System");
-        frame.setSize(600,600);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.frame = new JFrame();
+        this.d1 = new Data();
+        this.frame.setVisible(true);
+        this.frame.setTitle("University System");
+        this.frame.setSize(600,600);
+        this.frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         GridLayout gridLayout = new GridLayout(5,2);
-        frame.setLayout(gridLayout);
+        this.frame.setLayout(gridLayout);
         JTextField username = new JTextField("UserName");
         JPasswordField password = new JPasswordField("PassWord");
         JButton b1 = new JButton("Sign up");
         JButton b2 = new JButton("Sign in");
         JCheckBox checkBox = new JCheckBox("Is admin");
-        frame.add(username);
-        frame.add(password);
-        frame.add(b1);
-        frame.add(b2);
-        frame.add(checkBox);
+        this.frame.add(username);
+        this.frame.add(password);
+        this.frame.add(b1);
+        this.frame.add(b2);
+        this.frame.add(checkBox);
 
 
 
